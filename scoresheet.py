@@ -15,9 +15,9 @@ class Scores(Turtle):
     def update(self):
         self.clear()
         self.goto(-100, 200)
-        self.write(arg=f"{self.pad_score}", align='center', font=('Arial', 30, 'normal'))
+        self.write(arg=f"Score: {self.pad_score}", align='center', font=('Arial', 30, 'normal'))
         self.goto(100, 200)
-        self.write(arg=f"{self.highscore}", align='center', font=('Arial', 30, 'normal'))
+        self.write(arg=f"Highscore: {self.highscore}", align='center', font=('Arial', 30, 'normal'))
 
 
     def paddle_point(self):
@@ -25,8 +25,9 @@ class Scores(Turtle):
         self.update()
 
     def reset_score(self):
-        if self.pad_score > self.highscore:
+        if self.pad_score > int(self.highscore):
             self.highscore = self.pad_score
+            self.update()
             with open("Highscore.txt", 'w') as score:
                 self.highscore = str(self.highscore)
                 score.write(f"{self.highscore}")
