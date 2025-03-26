@@ -10,6 +10,7 @@ ball = Ball()
 scores = Scores()
 highscore = str(scores.highscore)
 obstacles = Obstacles()
+obstacles.load()
 
 screen = Screen()
 screen.listen()
@@ -20,7 +21,6 @@ screen.title("Image Breakout Game")
 
 screen.onkey(key='Right', fun=paddle.move_up)
 screen.onkey(key='Left', fun=paddle.move_down)
-
 
 
 def reset_game():
