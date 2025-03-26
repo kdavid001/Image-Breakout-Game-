@@ -22,6 +22,7 @@ screen.onkey(key='Right', fun=paddle.move_up)
 screen.onkey(key='Left', fun=paddle.move_down)
 
 
+
 def reset_game():
     global game_start
     ball.reset_ball()
