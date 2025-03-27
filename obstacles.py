@@ -1,7 +1,6 @@
 import random
 from turtle import Turtle
 
-COLORS = ['red', 'orange', 'yellow', 'green', 'blue', 'violet']
 pos = 20
 class Obstacles(Turtle):
     def create_car(self):

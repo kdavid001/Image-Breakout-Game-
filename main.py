@@ -1,16 +1,21 @@
+import turtle
+
 from pad import Paddle
 from turtle import *
 from ball import Ball
 from scoresheet import Scores
 from pwg import Gameover
-from obstacles import Obstacles
+# from obstacles import Obstacles
+import random
 
 paddle = Paddle()
 ball = Ball()
 scores = Scores()
 highscore = str(scores.highscore)
-obstacles = Obstacles()
-obstacles.load()
+# obstacles = Obstacles()
+# obstacles.load()
+COLORS = ['red', 'orange', 'yellow', 'green', 'blue', 'violet']
+all_cars = []
 
 screen = Screen()
 screen.listen()
@@ -29,11 +34,34 @@ def reset_game():
     scores.reset_score()
     game_start = True
 
+max_x1 = -375
+max_x2 = 375
 
+def obstacles():
+    obstacle_list = []  # Store created obstacles
+    color = random.choice(COLORS)
+    x_positions = list(range(-375, 376, 50))  # Generate evenly spaced positions
+
+    for x_pos in x_positions:
+        if random.randint(1, 1) == 1:  # Adjust probability to control obstacle density
+            new_obstacle = turtle.Turtle("square")
+            new_obstacle.shapesize(stretch_wid=1, stretch_len=2)
+            new_obstacle.penup()
+            new_obstacle.color(color )
+            new_obstacle.setpos(x_pos, 50)
+            obstacle_list.append(new_obstacle)  # Store the obstacle
+
+    return obstacle_list
+
+
+# Generate obstacles once
+all_obstacles = obstacles()
 game_start = True
+obstacles()
 while game_start:
     screen.update()
     ball.move()
+
 
     # for Top Wall
     if ball.ycor() > 280:
