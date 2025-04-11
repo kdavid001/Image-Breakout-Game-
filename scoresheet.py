@@ -3,7 +3,9 @@ from turtle import Turtle
 class Scores(Turtle):
     def __init__(self):
         super().__init__()
-        self.highscore = 0
+        with open("Highscore.txt") as score:
+            self.highscore = int(score.read())
+            self.highscore = int(self.highscore)
         self.clear()
         self.penup()
         self.setposition(0, 250)
@@ -20,6 +22,7 @@ class Scores(Turtle):
         self.write(arg=f"Highscore: {self.highscore}", align='center', font=('Arial', 30, 'normal'))
 
 
+
     def paddle_point(self):
         self.pad_score += 1
         self.update()
@@ -27,7 +30,6 @@ class Scores(Turtle):
     def reset_score(self):
         if self.pad_score > int(self.highscore):
             self.highscore = self.pad_score
-            self.update()
             with open("Highscore.txt", 'w') as score:
                 self.highscore = str(self.highscore)
                 score.write(f"{self.highscore}")
