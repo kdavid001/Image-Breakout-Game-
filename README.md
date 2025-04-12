@@ -30,7 +30,7 @@ Breakout is a classic arcade game where the player controls a paddle to bounce a
 ```bash
 cd turtle_version
 python main.py
-
+```
 💡 Features
 	•	Paddle movement with arrow keys
 	•	Ball physics
@@ -46,3 +46,23 @@ python main.py
 	•	Pygame
 
 🔧 Install Pygame
+```
+pip install pygame
+```
+▶️ How to Run
+```
+cd pygame_version
+python main.py
+```
+
+💡 Features
+	•	Keyboard-controlled paddle
+	•	Multiple rows of bricks
+	•	Score tracking
+	•	Game over and win conditions
+
+ 🧠 Future Plans
+	•	Add levels with increasing difficulty
+	•	Power-ups (like bigger paddle, multi-ball, etc.)
+	•	High score tracking
+	•	RL integration with OpenAI Gym (for fun experimentation)
